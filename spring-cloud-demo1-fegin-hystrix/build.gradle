@@ -1,0 +1,50 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.9.RELEASE'
+    }
+    repositories {
+        mavenLocal()
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+    }
+    dependencies {
+        classpath group: 'org.springframework.boot',
+                name: 'spring-boot-gradle-plugin',
+                version: springBootVersion
+    }
+
+}
+group 'cn.tangzy'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+}
+
+dependencies {
+    compile group: 'org.springframework.cloud',
+            name: 'spring-cloud-starter-eureka-server',
+            version: '1.4.2.RELEASE'
+    compile group: 'org.springframework.boot',
+            name: 'spring-boot-starter-security',
+            version: '1.5.9.RELEASE'
+    compile group: 'org.springframework.boot',
+            name: 'spring-boot-starter-web',
+            version: '1.5.9.RELEASE'
+    compile group: 'org.springframework.cloud',
+            name: 'spring-cloud-starter-zuul',
+            version: '1.4.2.RELEASE'
+    compile group: 'org.springframework.cloud',
+            name: 'spring-cloud-starter-config',
+            version: '1.4.1.RELEASE'
+    compile group: 'org.springframework.cloud',
+            name: 'spring-cloud-starter-hystrix',
+            version: '1.4.2.RELEASE'
+    compile group: 'org.springframework.cloud',
+            name: 'spring-cloud-starter-feign',
+            version: '1.4.2.RELEASE'
+}

@@ -10,6 +10,8 @@ eureka:
       defaultZone: http://root:booszy@localhost:8001/eureka
     register-with-eureka: false #关闭自己作为客户端注册
     fetch-registry: false
+  server:
+    enable-self-preservation: false # 关闭非高可用情况下的自我保护
 security:
   basic:
     enabled: true

@@ -1,4 +1,4 @@
-package cn.tangzy.controller;
+package cn.tangzy.demo2.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +24,11 @@ public class DemoController {
     @ResponseBody
     @RequestMapping(value = "/props", method = RequestMethod.GET)
     public Map<String, String> getProps() {
+        try {
+            Thread.sleep(100000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return new HashMap<String, String>() {{
             put("lang", "scala");
         }};

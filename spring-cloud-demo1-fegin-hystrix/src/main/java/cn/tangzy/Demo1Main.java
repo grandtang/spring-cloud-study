@@ -1,10 +1,8 @@
 package cn.tangzy;
 
-import cn.tangzy.service.MFeignClient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
@@ -19,9 +17,8 @@ import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 @EnableFeignClients
 @EnableHystrix
 @EnableCircuitBreaker
-@RefreshScope
-public class Main {
+public class Demo1Main {
     public static void main(String[] args) {
-        SpringApplication.run(Main.class, args);
+        SpringApplication.run(Demo1Main.class, args);
     }
 }

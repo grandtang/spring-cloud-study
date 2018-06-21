@@ -7,14 +7,16 @@ eureka:
     healthcheck:
       enabled: true
     service-url:
-      defaultZone: http://root:booszy@localhost:8001/eureka
+      #defaultZone: http://root:booszy@localhost:8001/eureka
+      defaultZone: http://localhost:8001/eureka
     register-with-eureka: false #关闭自己作为客户端注册
     fetch-registry: false
   server:
     enable-self-preservation: false # 关闭非高可用情况下的自我保护
-security:
-  basic:
-    enabled: true
-  user:
-    name: root #用户名和密码，等会访问的时候，会要求你登录，服务注册的时候也需要带着用户名和密码
-    password: booszy
+    eviction-interval-timer-in-ms: 10000 #清理间隔（单位毫秒，默认是60*1000）
+#security:
+#  basic:
+#    enabled: false
+#  user:
+#    name: root #用户名和密码，等会访问的时候，会要求你登录，服务注册的时候也需要带着用户名和密码
+#    password: booszy

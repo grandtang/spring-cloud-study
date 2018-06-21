@@ -13,8 +13,7 @@ import java.util.Map;
  **/
 @FeignClient(
         name = "spring-cloud-demo2-fegin-hystrix",
-        fallback = FeignClientHystrixCallBack.class,
-        configuration = MFeignClient.class
+        fallback = FeignClientHystrixCallBack.class
 )
 public interface MFeignClient {
     @RequestMapping(method = RequestMethod.GET, value = "/demo/props")

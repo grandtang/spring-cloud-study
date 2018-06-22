@@ -21,6 +21,9 @@ eureka:
     appname: spring-cloud-demo1-fegin-hystrix
     leaseRenewalIntervalInSeconds: 1
     leaseExpirationDurationInSeconds: 2
+management:
+  security:
+    enabled: false
 #security:
 #  basic:
 #    enabled: false

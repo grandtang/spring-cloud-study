@@ -7,8 +7,8 @@ spring:
         enabled: true
         service-id: springcloud-config-server
       fail-fast: true
-      username: root
-      password: booszy
+#      username: root
+#      password: booszy
       profile: default
 eureka:
   client:
@@ -21,6 +21,9 @@ eureka:
     appname: spring-cloud-demo2-fegin-hystrix
     leaseRenewalIntervalInSeconds: 1
     leaseExpirationDurationInSeconds: 2
+management:
+  security:
+    enabled: false
 #security:
 #  basic:
 #    enabled: false

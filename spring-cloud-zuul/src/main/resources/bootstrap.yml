@@ -1,6 +1,7 @@
 spring:
   application:
     name: spring-cloud-zuul
+  profiles: pro
   cloud:
     config:
       discovery:
@@ -9,7 +10,39 @@ spring:
       fail-fast: true
 #      username: root
 #      password: booszy
-      profile: default
+#      profile: default
+eureka:
+  client:
+    service-url:
+#      defaultZone: http://root:booszy@localhost:8001/eureka
+      defaultZone: http://spark-master-01:8001/eureka,http://spark-slaves-01:8001/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
+    appname: springcloud-zuul
+
+#security:
+#  basic:
+#    enabled: true
+#  user:
+#    name: root
+#    password: booszy
+
+---
+
+spring:
+  application:
+    name: spring-cloud-zuul
+  profiles: dev
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: springcloud-config-server
+      fail-fast: true
+#      username: root
+#      password: booszy
+#      profile: default
 eureka:
   client:
     service-url:

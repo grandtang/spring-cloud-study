@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: spring-cloud-feigen-client
+#  cloud:
+#    config:
+#      discovery:
+#        enabled: true
+#        service-id: springcloud-config-server
+#      fail-fast: true
+#      profile: default
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.20.229:8081/eureka
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${server.port}
+    appname: spring-cloud-feigen-client
+server:
+  address: 192.168.20.229

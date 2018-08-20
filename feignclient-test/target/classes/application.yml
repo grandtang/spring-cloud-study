@@ -1,7 +1,15 @@
 server:
-  port: 9001
+  port: 9002
 
 spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
+
+wso2-api:
+  server-name: WSO2-API/wso2-api
+
+logging:
+  config: classpath:logback-spring.xml
+
+

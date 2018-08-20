@@ -1,8 +1,100 @@
 server:
   port: 8001
+---
+spring:
+  application:
+    name: eureka-server
+  profiles: master01
 eureka:
   datacenter: trmap
   environment: product
+  instance:
+    hostname: spark-master-01
+  client:
+    healthcheck:
+      enabled: true
+    service-url:
+      #defaultZone: http://root:booszy@localhost:8001/eureka
+      defaultZone: http://spark-slaves-01:8001/eureka #,http://spark-slaves-02:8001/eureka
+#    register-with-eureka: false #关闭自己作为客户端注册
+#    fetch-registry: false #是否从eureka上获取注册信息
+  server:
+    #enable-self-preservation: false # 关闭非高可用情况下的自我保护
+    eviction-interval-timer-in-ms: 10000 #清理间隔（单位毫秒，默认是60*1000）
+#security:
+#  basic:
+#    enabled: false
+#  user:
+#    name: root #用户名和密码，等会访问的时候，会要求你登录，服务注册的时候也需要带着用户名和密码
+#    password: booszy
+
+---
+spring:
+  application:
+    name: eureka-server
+  profiles: slaves01
+eureka:
+  datacenter: trmap
+  environment: product
+  instance:
+    hostname: spark-slaves-01
+  client:
+    healthcheck:
+      enabled: true
+    service-url:
+      #defaultZone: http://root:booszy@localhost:8001/eureka
+      defaultZone: http://spark-master-01:8001/eureka #,http://spark-slaves-02:8001/eureka
+#    register-with-eureka: false #关闭自己作为客户端注册
+#    fetch-registry: false #是否从eureka上获取注册信息
+  server:
+    #enable-self-preservation: false # 关闭非高可用情况下的自我保护
+    eviction-interval-timer-in-ms: 10000 #清理间隔（单位毫秒，默认是60*1000）
+#security:
+#  basic:
+#    enabled: false
+#  user:
+#    name: root #用户名和密码，等会访问的时候，会要求你登录，服务注册的时候也需要带着用户名和密码
+#    password: booszy
+
+#---
+#spring:
+#  application:
+#    name: eureka-server
+#  profiles: slaves02
+#eureka:
+#  datacenter: trmap
+#  environment: product
+#  instance:
+#    hostname: spark-slaves-02
+#  client:
+#    healthcheck:
+#      enabled: true
+#    service-url:
+#      #defaultZone: http://root:booszy@localhost:8001/eureka
+#      defaultZone: http://spark-master-01:8001/eureka,http://spark-slaves-01:8001/eureka
+##    register-with-eureka: false #关闭自己作为客户端注册
+##    fetch-registry: false #是否从eureka上获取注册信息
+#  server:
+#    #enable-self-preservation: false # 关闭非高可用情况下的自我保护
+#    eviction-interval-timer-in-ms: 10000 #清理间隔（单位毫秒，默认是60*1000）
+##security:
+##  basic:
+##    enabled: false
+##  user:
+##    name: root #用户名和密码，等会访问的时候，会要求你登录，服务注册的时候也需要带着用户名和密码
+##    password: booszy
+
+
+---
+spring:
+  application:
+    name: eureka-server
+  profiles: dev
+eureka:
+  datacenter: trmap
+  environment: product
+  instance:
+    hostname: localhost
   client:
     healthcheck:
       enabled: true
@@ -10,9 +102,9 @@ eureka:
       #defaultZone: http://root:booszy@localhost:8001/eureka
       defaultZone: http://localhost:8001/eureka
     register-with-eureka: false #关闭自己作为客户端注册
-    fetch-registry: false
+    fetch-registry: false #是否从eureka上获取注册信息
   server:
-    enable-self-preservation: false # 关闭非高可用情况下的自我保护
+    #enable-self-preservation: false # 关闭非高可用情况下的自我保护
     eviction-interval-timer-in-ms: 10000 #清理间隔（单位毫秒，默认是60*1000）
 #security:
 #  basic:

@@ -25,6 +25,7 @@ public class DemoController {
     @ResponseBody
     @RequestMapping(value = "/props", method = RequestMethod.GET)
     public Map<String, String> getProps() {
+        System.out.println("hello");
         return new HashMap<String, String>() {{
             put("lang", "java");
         }};
@@ -33,6 +34,7 @@ public class DemoController {
     @ResponseBody
     @RequestMapping(value = "/props/feign", method = RequestMethod.GET)
     public Map<String, String> getPropsByFeign() {
+        System.out.println("hello2");
         return mFeignClient.getProps();
     }
 

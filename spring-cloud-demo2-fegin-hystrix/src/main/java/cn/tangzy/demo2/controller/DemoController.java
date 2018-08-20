@@ -24,6 +24,7 @@ public class DemoController {
     @ResponseBody
     @RequestMapping(value = "/props", method = RequestMethod.GET)
     public Map<String, String> getProps() {
+        System.out.println("hello3");
         try {
             Thread.sleep(100000);
         } catch (InterruptedException e) {

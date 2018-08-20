@@ -17,7 +17,7 @@ group 'cn.tangzy'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
-
+apply plugin: 'spring-boot'
 sourceCompatibility = 1.8
 
 repositories {
@@ -45,9 +45,11 @@ dependencies {
             name: 'spring-cloud-starter-hystrix',
             version: '1.4.2.RELEASE'
 }
-//jar{
-//    mainClassName
-//}
+jar {
+    manifest {
+        attributes 'Main-Class': 'cn.tangzy.zuul.ZuulMain'
+    }
+}
 
 //https://blog.csdn.net/yp090416/article/details/78017552
 //https://www.cnblogs.com/ilinuxer/p/6580998.html
